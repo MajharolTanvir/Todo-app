@@ -1,8 +1,10 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import UseTodo from '../../Hooks/UseTodo';
+import TodoList from '../TodoList/TodoList';
 
 const Todo = () => {
-
+    const { todos, refetch } = UseTodo()
 
     const handleSubmit = e => {
 
@@ -21,6 +23,7 @@ const Todo = () => {
                 if (data.insertedId) {
                     toast.success("Your data added successful")
                     e.target.value = ''
+                    refetch()
                 }
             })
     }
@@ -36,7 +39,10 @@ const Todo = () => {
                 </div>
             </div>
             <div>
-                
+                <TodoList
+                    todos={todos}
+                    refetch={refetch}
+                ></TodoList>
             </div>
         </div>
     );
