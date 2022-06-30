@@ -6,7 +6,7 @@ import Loading from '../../shared/Loading';
 
 const Todo = () => {
 
-    const { data: todos, isLoading, refetch } = useQuery('todos', () => fetch('http://localhost:5000/todos').then(res => res.json()))
+    const { data: todos, isLoading, refetch } = useQuery('todos', () => fetch('https://todo-app-latest.herokuapp.com/todos').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
@@ -16,7 +16,7 @@ const Todo = () => {
 
         const title = e.target.value;
 
-        fetch('http://localhost:5000/todo', {
+        fetch('https://todo-app-latest.herokuapp.com/todo', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

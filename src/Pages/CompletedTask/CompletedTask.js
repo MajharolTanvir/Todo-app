@@ -5,14 +5,14 @@ import { AiFillDelete } from "react-icons/ai";
 import { toast } from 'react-toastify';
 
 const CompletedTask = () => {
-    const { data: todos, isLoading, refetch } = useQuery('todos', () => fetch('http://localhost:5000/todos').then(res => res.json()))
+    const { data: todos, isLoading, refetch } = useQuery('todos', () => fetch('https://todo-app-latest.herokuapp.com/todos').then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
     }
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/todo/${id}`, {
+        fetch(`https://todo-app-latest.herokuapp.com/todo/${id}`, {
             method: 'DELETE',
             headers: {
                 "content-type": "application/json"
