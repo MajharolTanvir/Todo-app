@@ -4,16 +4,21 @@ import Calender from './Pages/Calender/Calender';
 import CompletedTask from './Pages/CompletedTask/CompletedTask';
 import Todo from './Pages/Todo/Todo';
 import Navbar from './shared/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Home from './Pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
       <Routes>
-        <Route path='/' element={<Todo></Todo>}></Route>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/todo' element={<Todo></Todo>}></Route>
         <Route path='/completed' element={<CompletedTask></CompletedTask>}></Route>
         <Route path='/calender' element={<Calender></Calender>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

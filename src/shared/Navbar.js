@@ -17,7 +17,10 @@ const Navbar = () => {
                     <a className="text-xl text-white pr-2 font-semibold" href="/"><h4>Todo app</h4></a>
                     <ul className="navbar-nav flex flex-col pl-0 list-style-none ml-auto">
                         <li className="nav-item p-2">
-                            <a className="nav-link text-gray-100 hover:text-gray-500 focus:text-gray-300 p-0" href="/">Todo</a>
+                            <a className="nav-link text-gray-100 hover:text-gray-500 focus:text-gray-300 p-0" href="/">Home</a>
+                        </li>
+                        <li className="nav-item p-2">
+                            <a className="nav-link text-gray-100 hover:text-gray-500 focus:text-gray-300 p-0" href="/todo">Todo</a>
                         </li>
                         <li className="nav-item p-2">
                             <a className="nav-link text-gray-100 hover:text-gray-500 focus:text-gray-300 p-0" href="/complete">Completed task</a>
