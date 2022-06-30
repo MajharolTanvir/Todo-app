@@ -1,10 +1,16 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import UseTodo from '../../Hooks/UseTodo';
 import TodoList from '../TodoList/TodoList';
+import { useQuery } from 'react-query'
+import Loading from '../../shared/Loading';
 
 const Todo = () => {
-    const { todos, refetch } = UseTodo()
+
+    const { data: todos, isLoading, refetch } = useQuery('todos', () => fetch('http://localhost:5000/todos').then(res => res.json()))
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     const handleSubmit = e => {
 
@@ -32,7 +38,7 @@ const Todo = () => {
             <div className='container mx-auto my-10'>
                 <div className="flex justify-center">
                     <div className="mb-3 w-1/2">
-                        <label htmlFor="exampleFormControlInput1" className="form-label inline-block mb-2 font-bold text-gray-700"
+                        <label htmlFor="exampleFormControlInput1" className="form-label inline-block mb-2 font-bold text-gray-100"
                         >Title</label>
                         <input onKeyPress={(e) => e.key === 'Enter' && handleSubmit(e)} type="text" name='title' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput1" placeholder="Example label" />
                     </div>
@@ -42,6 +48,7 @@ const Todo = () => {
                 <TodoList
                     todos={todos}
                     refetch={refetch}
+                    isLoading={isLoading}
                 ></TodoList>
             </div>
         </div>
