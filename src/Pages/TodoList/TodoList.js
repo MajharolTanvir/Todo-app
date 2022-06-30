@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillEdit } from "react-icons/ai";
-import Modal from '../../Modal/Modal';
+import Modal from '../Modal/Modal';
 
 const TodoList = ({ todos, refetch }) => {
 
@@ -17,12 +17,12 @@ const TodoList = ({ todos, refetch }) => {
 
     return (
         <div className="flex justify-center">
-            <ul className="bg-gray-300 rounded-lg border border-gray-100 w-1/2 text-gray-900">
-                <li className="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold text-center">Todo list</li>
+            <ul className="bg-gray-100 rounded-lg border border-gray-100 w-full mx-5 md:w-1/2 text-gray-900">
+                <li className="px-6 py-2 border-b border-gray-400 w-full rounded-t-lg font-bold text-center">Todo list</li>
                 {
                     todos.map(todo =>
                         <div key={todo._id} className='flex justify-center items-center'>
-                            <li className="px-6 py-2 border-b border-gray-100 w-full">{todo.title}</li>
+                            <li className="px-6 py-2 border-b border-gray-400 w-full">{todo.title}</li>
                             <button
                                 type="button"
                                 onClick={openModal}

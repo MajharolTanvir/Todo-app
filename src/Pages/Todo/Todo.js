@@ -34,7 +34,7 @@ const Todo = () => {
             })
     }
     return (
-        <div>
+        <div className='pb-10'>
             <div className='container mx-auto my-10'>
                 <div className="flex justify-center">
                     <div className="mb-3 w-1/2">
